@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aksara — tulis dalam aksara Jawa</title>
+    <meta
+      name="description"
+      content="Alih aksara Latin ke aksara Jawa (hanacaraka) dan sebaliknya, lengkap dengan pasangan, sandhangan, dan penjelasan per suku kata. Plus tabel carakan, kisah Aji Saka, dan kuis."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aksara-id.vercel.app/" />
+    <meta property="og:title" content="Aksara — tulis dalam aksara Jawa" />
+    <meta property="og:description" content="Ketik namamu, lihat ia ditulis dalam hanacaraka, dan pelajari kenapa ditulis begitu." />
+    <meta property="og:image" content="https://aksara-id.vercel.app/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://aksara-id.vercel.app/" />
+    <meta name="theme-color" content="#f4f1ea" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f1226" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href="/ikon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <header class="kepala">
+      <a class="merek" href="/"><span class="jawa" aria-hidden="true">ꦲ</span> Aksara</a>
+      <nav><a href="#carakan">Carakan</a><a href="#baca">Baca</a><a href="#kuis">Kuis</a><a href="#tentang">Tentang</a></nav>
+    </header>
+
+    <main>
+      <section class="pembuka" aria-labelledby="judul">
+        <p class="label">Alih aksara Latin ⇄ Jawa</p>
+        <h1 id="judul">Tulis namamu dalam <em>aksara Jawa.</em></h1>
+
+        <div class="alih">
+          <label for="latin" class="sr-only">Teks Latin</label>
+          <input id="latin" class="masukan" autocomplete="off" spellcheck="false" placeholder="Ketik di sini, misalnya namamu" />
+          <div class="contoh" data-contoh></div>
+          <div class="hasil-kartu">
+            <p class="hasil-jawa jawa" data-jawa lang="jv-Java" aria-live="polite"></p>
+            <div class="alat">
+              <div class="pilihan" role="group" aria-label="Bacaan huruf e">
+                <span class="label">e dibaca</span>
+                <button type="button" data-e="ê" aria-pressed="true">ê (sêkar)</button>
+                <button type="button" data-e="é" aria-pressed="false">é (saté)</button>
+              </div>
+              <label class="centang"><input type="checkbox" id="spasi" /> Pakai spasi</label>
+              <span class="dorong"></span>
+              <button type="button" class="tombol" id="salin">Salin</button>
+              <button type="button" class="tombol" id="unduh">Unduh gambar</button>
+            </div>
+          </div>
+          <p class="label rinci-judul">Kenapa ditulis begitu</p>
+          <ol class="rinci" data-rinci></ol>
+        </div>
+      </section>
+
+      <section class="bagian" id="carakan" aria-labelledby="judul-carakan">
+        <p class="label">Carakan</p>
+        <h2 id="judul-carakan">Dua puluh aksara, <em>satu kisah</em></h2>
+        <p class="pengantar">
+          Urutan aksara Jawa adalah sebuah cerita. Menurut legenda, Aji Saka meninggalkan pusakanya kepada abdinya Sembada
+          dengan pesan agar tak diberikan kepada siapa pun selain dirinya. Ketika Aji Saka mengutus Dora untuk mengambilnya,
+          kedua abdi setia itu bertarung sampai sama-sama tewas. Untuk mengenang mereka, Aji Saka menyusun empat baris ini.
+        </p>
+        <div class="carakan" data-carakan></div>
+        <p class="catatan">Di bawah tiap aksara: bentuk pasangannya, yang dipakai bila konsonan sebelumnya mati. Di sini ditempelkan pada ha.</p>
+
+        <h3 class="sub">Sandhangan dan tanda lain, pada aksara ka</h3>
+        <div class="sandhangan" data-sandhangan></div>
+      </section>
+
+      <section class="bagian" id="baca" aria-labelledby="judul-baca">
+        <p class="label">Arah sebaliknya</p>
+        <h2 id="judul-baca">Baca tulisan <em>aksara Jawa</em></h2>
+        <p class="pengantar">Tempel teks beraksara Jawa (Unicode) untuk dibaca dalam huruf Latin.</p>
+        <div class="baca-grid">
+          <label class="sr-only" for="jawa-masuk">Teks aksara Jawa</label>
+          <textarea id="jawa-masuk" class="jawa" lang="jv-Java" rows="3" spellcheck="false"></textarea>
+          <p class="baca-hasil" data-baca aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="bagian" id="kuis" aria-labelledby="judul-kuis">
+        <p class="label">Latihan</p>
+        <h2 id="judul-kuis">Bisa baca <em>yang ini?</em></h2>
+        <div class="kuis">
+          <p class="soal jawa" data-soal lang="jv-Java"></p>
+          <div class="pilihan-jawab" data-jawab></div>
+          <p class="skor" data-skor aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="bagian tentang" id="tentang" aria-labelledby="judul-tentang">
+        <h2 id="judul-tentang">Tentang</h2>
+        <ul>
+          <li>
+            Alih aksara mengikuti kaidah umum penulisan modern: sandhangan untuk vokal, wignyan, layar, dan cecak untuk h, r,
+            dan ng mati, pasangan untuk konsonan mati di tengah, cakra, keret, dan pengkal untuk gugus dengan r dan y, serta pa
+            cêrêk dan nga lêlêt untuk rê dan lê.
+          </li>
+          <li>
+            Huruf e dalam ejaan Latin bisa dibaca ê (pepet) atau é (taling); pilih bacaannya, atau ketik ê dan é langsung. Aksara
+            murda, aksara swara, dan aksara rekan selain f, v, z, dan kh belum dipakai, begitu juga ejaan khusus yang tidak
+            mengikuti bunyi.
+          </li>
+          <li>
+            Bentuk pasangan digambar oleh fon <a href="https://fonts.google.com/noto/specimen/Noto+Sans+Javanese">Noto Sans
+            Javanese</a> (SIL Open Font License) dari urutan konsonan, pangkon, dan konsonan dalam Unicode, jadi hasilnya bisa
+            disalin ke aplikasi lain yang mendukung aksara Jawa.
+          </li>
+          <li>Pembacaan balik dari aksara Jawa bersifat sederhana: ha di awal kata dibaca sebagai vokal, dan spasi tidak dikembalikan.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="kaki">
+      <p>Dibuat oleh Rafi Fernandito · <a href="https://github.com/Reverseflash45/aksara">kode sumber</a></p>
+    </footer>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
