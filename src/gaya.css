@@ -1,39 +1,25 @@
 :root {
+  /* buku tulis SD: kertas putih bergaris biru, margin merah, tinta pulpen biru */
   color-scheme: light;
-  --kertas: #f4f1ea;
-  --kertas-2: #ebe6db;
-  --kertas-3: #ded7c8;
-  --tinta: #1c2347;
-  --tinta-2: #444a68;
-  --samar: #62677e;
-  --garis: #d6d0c2;
-  --garis-kuat: #b2ab9b;
-  --aksen: #9c4a17;
-  --aksen-lembut: #f2dcc6;
-  --benar: #2f6b3a;
-  --salah: #9a3324;
-  --sorot: #2f4fa3;
+  --kertas: #ffffff;
+  --kertas-2: #f4f8fe;
+  --kertas-3: #e6eefa;
+  --tinta: #1d2433;
+  --tinta-2: #45506a;
+  --samar: #5a6580;
+  --garis: #c9dcf3;
+  --garis-kuat: #9fb9dd;
+  --aksen: #1c3fbf;
+  --aksen-lembut: #e3eaff;
+  --pulpen-merah: #d93a32;
+  --margin: #ec8c86;
+  --benar: #2f7a3d;
+  --salah: #c8322a;
+  --sorot: #1c3fbf;
+  --baris: 32px;
   --jawa: "Noto Sans Javanese", serif;
-  --serif: "Literata Variable", Georgia, serif;
-  --huruf: "Work Sans Variable", system-ui, sans-serif;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
-    --kertas: #0f1226;
-    --kertas-2: #171b35;
-    --kertas-3: #20254a;
-    --tinta: #ece8dc;
-    --tinta-2: #c4c3cf;
-    --samar: #9798ac;
-    --garis: #282d52;
-    --garis-kuat: #3d4372;
-    --aksen: #f0a868;
-    --aksen-lembut: #3d2814;
-    --benar: #7fd18f;
-    --salah: #ff9a85;
-    --sorot: #8fb0ff;
-  }
+  --serif: "Kalam", "Comic Sans MS", cursive;
+  --huruf: "Nunito Sans Variable", system-ui, sans-serif;
 }
 
 *,
@@ -43,9 +29,26 @@
 }
 body {
   margin: 0;
-  background: var(--kertas);
   color: var(--tinta);
   font: 400 16px/1.6 var(--huruf);
+  /* garis buku tulis */
+  background: repeating-linear-gradient(var(--kertas) 0 calc(var(--baris) - 1px), var(--garis) calc(var(--baris) - 1px) var(--baris)) var(--kertas);
+}
+/* garis margin merah di kiri, seperti buku tulis */
+@media (min-width: 900px) {
+  body {
+    position: relative;
+  }
+  body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: max(24px, calc(50% - 560px - 40px));
+    width: 2px;
+    background: var(--margin);
+    pointer-events: none;
+  }
 }
 a {
   color: inherit;
@@ -87,8 +90,10 @@ h1,
 h2,
 h3 {
   font-family: var(--serif);
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--aksen);
+  text-wrap: balance;
 }
 h1 {
   margin: 12px 0 0;
@@ -98,8 +103,12 @@ h1 {
 }
 h1 em,
 h2 em {
-  font-style: italic;
-  color: var(--aksen);
+  /* coretan pulpen merah guru */
+  font-style: normal;
+  color: var(--pulpen-merah);
+  text-decoration: underline wavy var(--pulpen-merah);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
 }
 h2 {
   margin: 8px 0 0;
@@ -126,7 +135,7 @@ main,
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  font: 600 24px/1 var(--serif);
+  font: 700 24px/1 var(--serif);
 }
 .merek .jawa {
   display: grid;
@@ -163,7 +172,7 @@ main,
   border: 1.5px solid var(--tinta);
   border-radius: 14px;
   background: var(--kertas);
-  font: 500 24px var(--serif);
+  font: 700 24px var(--serif);
 }
 .contoh {
   display: flex;
@@ -187,9 +196,12 @@ main,
   margin-top: 22px;
   padding: clamp(18px, 3vw, 32px);
   border-radius: 20px;
-  background: var(--kertas-2);
-  background-image: radial-gradient(circle at 1px 1px, var(--garis) 1px, transparent 0);
-  background-size: 22px 22px;
+  border: 1.5px solid var(--garis-kuat);
+  /* lembar latihan menulis: garis bantu tiga baris */
+  background:
+    linear-gradient(transparent calc(50% - 1px), rgb(217 58 50 / 0.35) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+    repeating-linear-gradient(transparent 0 23px, var(--garis) 23px 24px),
+    var(--kertas);
 }
 .hasil-jawa {
   --ukuran: 1;
@@ -288,7 +300,7 @@ main,
   line-height: 1.6;
 }
 .rinci-latin {
-  font: 600 16px var(--serif);
+  font: 700 16px var(--serif);
 }
 .rinci-catatan {
   font-size: 12px;
@@ -325,7 +337,7 @@ main,
 }
 .baris-arti strong {
   display: block;
-  font: 600 22px var(--serif);
+  font: 700 22px var(--serif);
 }
 .baris-arti span {
   color: var(--samar);
@@ -351,7 +363,7 @@ main,
   line-height: 1.5;
 }
 .nama {
-  font: 600 15px var(--serif);
+  font: 700 15px var(--serif);
 }
 .pasangan {
   margin-top: 2px;
@@ -388,7 +400,7 @@ main,
 }
 .sandhangan strong {
   display: block;
-  font: 600 15px var(--serif);
+  font: 700 15px var(--serif);
   color: var(--tinta);
 }
 
@@ -414,7 +426,7 @@ main,
   padding: 14px 16px;
   border-radius: 14px;
   background: var(--kertas-2);
-  font: 500 24px/1.5 var(--serif);
+  font: 700 24px/1.5 var(--serif);
   overflow-wrap: anywhere;
 }
 
@@ -443,7 +455,7 @@ main,
   border: 1.5px solid var(--tinta);
   border-radius: 12px;
   background: var(--kertas);
-  font: 600 20px var(--serif);
+  font: 700 20px var(--serif);
   cursor: pointer;
 }
 .pilihan-jawab button:hover {

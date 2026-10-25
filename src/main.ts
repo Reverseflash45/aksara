@@ -1,7 +1,8 @@
 import "@fontsource/noto-sans-javanese/400.css";
 import "@fontsource/noto-sans-javanese/700.css";
-import "@fontsource-variable/literata";
-import "@fontsource-variable/work-sans";
+import "@fontsource/kalam/400.css";
+import "@fontsource/kalam/700.css";
+import "@fontsource-variable/nunito-sans";
 import "./gaya.css";
 import { CARAKAN, CONTOH, PANGKON, type Pilihan, keJawa, keJawaRinci, keLatin } from "./aksara";
 
@@ -83,32 +84,36 @@ $("#unduh").addEventListener("click", async () => {
   const jawa = keJawa(masuk.value, pilihan);
   if (!jawa) return;
   await document.fonts.load('700 120px "Noto Sans Javanese"', jawa);
-  await document.fonts.load('600 40px "Literata Variable"');
+  await document.fonts.load('700 44px "Kalam"');
   const c = document.createElement("canvas");
   c.width = 1200;
   c.height = 630;
   const g = c.getContext("2d")!;
   const css = getComputedStyle(document.documentElement);
-  g.fillStyle = css.getPropertyValue("--kertas").trim();
+  const v = (n: string) => css.getPropertyValue(n).trim();
+  // Selembar buku tulis: garis biru tiap 42 px dan margin merah di kiri.
+  g.fillStyle = v("--kertas");
   g.fillRect(0, 0, 1200, 630);
-  g.fillStyle = css.getPropertyValue("--aksen").trim();
-  g.fillRect(0, 0, 1200, 10);
-  g.fillStyle = css.getPropertyValue("--tinta").trim();
+  g.fillStyle = v("--garis");
+  for (let y = 41; y < 630; y += 42) g.fillRect(0, y, 1200, 2);
+  g.fillStyle = v("--margin");
+  g.fillRect(96, 0, 3, 630);
+  g.fillStyle = v("--tinta");
   g.textAlign = "center";
   g.textBaseline = "middle";
   let ukuran = 150;
   g.font = `700 ${ukuran}px "Noto Sans Javanese"`;
-  while (g.measureText(jawa).width > 1080 && ukuran > 40) {
+  while (g.measureText(jawa).width > 1000 && ukuran > 40) {
     ukuran -= 6;
     g.font = `700 ${ukuran}px "Noto Sans Javanese"`;
   }
-  g.fillText(jawa, 600, 280);
-  g.font = '600 40px "Literata Variable", Georgia, serif';
-  g.fillStyle = css.getPropertyValue("--tinta-2").trim();
-  g.fillText(masuk.value.trim(), 600, 470);
-  g.font = '400 22px "Work Sans Variable", system-ui, sans-serif';
-  g.fillStyle = css.getPropertyValue("--samar").trim();
-  g.fillText("aksara.raffstw.my.id", 600, 580);
+  g.fillText(jawa, 648, 270);
+  g.font = '700 46px "Kalam", cursive';
+  g.fillStyle = v("--aksen");
+  g.fillText(masuk.value.trim(), 648, 470);
+  g.font = '400 24px "Kalam", cursive';
+  g.fillStyle = v("--samar");
+  g.fillText("aksara.raffstw.my.id", 648, 578);
   const a = document.createElement("a");
   a.href = c.toDataURL("image/png");
   a.download = `aksara-${masuk.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-") || "jawa"}.png`;

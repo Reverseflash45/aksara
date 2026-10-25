@@ -50,4 +50,4 @@ npm test
 npm run build
 ```
 
-Vite + TypeScript, tanpa framework. Huruf: Noto Sans Javanese (SIL OFL), Literata, Work Sans.
+Vite + TypeScript, tanpa framework. Huruf: Noto Sans Javanese (SIL OFL), Kalam, Nunito Sans. Tampilan buku tulis: garis biru, margin merah, tinta pulpen biru.
