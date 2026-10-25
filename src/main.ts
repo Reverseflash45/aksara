@@ -108,7 +108,7 @@ $("#unduh").addEventListener("click", async () => {
   g.fillText(masuk.value.trim(), 600, 470);
   g.font = '400 22px "Work Sans Variable", system-ui, sans-serif';
   g.fillStyle = css.getPropertyValue("--samar").trim();
-  g.fillText("aksara-id.vercel.app", 600, 580);
+  g.fillText("aksara.raffstw.my.id", 600, 580);
   const a = document.createElement("a");
   a.href = c.toDataURL("image/png");
   a.download = `aksara-${masuk.value.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-") || "jawa"}.png`;

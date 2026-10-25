@@ -2,7 +2,7 @@
 
 ![Aksara: tulis namamu dalam aksara Jawa](public/og.png)
 
-**[Buka Aksara](https://aksara-id.vercel.app)**
+**[Buka Aksara](https://aksara.raffstw.my.id)**
 
 Alih aksara Latin ⇄ aksara Jawa (hanacaraka), dengan penjelasan kenapa setiap suku ditulis
 begitu.
