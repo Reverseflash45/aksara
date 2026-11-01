@@ -19,6 +19,9 @@
     <link rel="canonical" href="https://aksara.raffstw.my.id/" />
     <meta name="theme-color" content="#ffffff" />
     <link rel="icon" href="/ikon.svg" type="image/svg+xml" />
+    <link rel="preload" href="/node_modules/@fontsource/kalam/files/kalam-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/node_modules/@fontsource/noto-sans-javanese/files/noto-sans-javanese-javanese-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
   </head>
   <body>
     <header class="kepala">
@@ -33,10 +36,10 @@
 
         <div class="alih">
           <label for="latin" class="sr-only">Teks Latin</label>
-          <input id="latin" class="masukan" autocomplete="off" spellcheck="false" placeholder="Ketik di sini, misalnya namamu" />
-          <div class="contoh" data-contoh></div>
+          <input id="latin" class="masukan" autocomplete="off" spellcheck="false" placeholder="Ketik di sini, misalnya namamu" value="Hanacaraka" />
+          <div class="contoh" data-contoh><button type="button" data-isi="hanacaraka">hanacaraka</button><button type="button" data-isi="aksara jawa">aksara jawa</button><button type="button" data-isi="Ngayogyakarta">Ngayogyakarta</button><button type="button" data-isi="Surakarta">Surakarta</button><button type="button" data-isi="sugêng énjing">sugêng énjing</button><button type="button" data-isi="matur nuwun">matur nuwun</button><button type="button" data-isi="Jawa Têngah">Jawa Têngah</button><button type="button" data-isi="kraton">kraton</button></div>
           <div class="hasil-kartu">
-            <p class="hasil-jawa jawa" data-jawa lang="jv-Java" aria-live="polite"></p>
+            <p class="hasil-jawa jawa" data-jawa lang="jv-Java" aria-live="polite">ꦲꦤꦕꦫꦏ</p>
             <div class="alat">
               <div class="pilihan" role="group" aria-label="Bacaan huruf e">
                 <span class="label">e dibaca</span>
@@ -50,7 +53,7 @@
             </div>
           </div>
           <p class="label rinci-judul">Kenapa ditulis begitu</p>
-          <ol class="rinci" data-rinci></ol>
+          <ol class="rinci" data-rinci><li><span class="rinci-jawa jawa" lang="jv-Java">ꦲ</span><span class="rinci-latin">ha</span><span class="rinci-catatan">ha</span></li><li><span class="rinci-jawa jawa" lang="jv-Java">ꦤ</span><span class="rinci-latin">na</span><span class="rinci-catatan">na</span></li><li><span class="rinci-jawa jawa" lang="jv-Java">ꦕ</span><span class="rinci-latin">ca</span><span class="rinci-catatan">ca</span></li><li><span class="rinci-jawa jawa" lang="jv-Java">ꦫ</span><span class="rinci-latin">ra</span><span class="rinci-catatan">ra</span></li><li><span class="rinci-jawa jawa" lang="jv-Java">ꦏ</span><span class="rinci-latin">ka</span><span class="rinci-catatan">ka</span></li></ol>
         </div>
       </section>
 
